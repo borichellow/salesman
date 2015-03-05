@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="coorY1" />
+    <item type="id" name="coorY2" />
+    <item type="id" name="coorY3" />
+    <item type="id" name="coorY4" />
+    <item type="id" name="coorY5" />
+    <item type="id" name="coorY6" />
+    <item type="id" name="coorX1" />
+    <item type="id" name="coorX2" />
+    <item type="id" name="coorX3" />
+    <item type="id" name="coorX4" />
+    <item type="id" name="coorX5" />
+    <item type="id" name="coorX6" />
+</resources>
