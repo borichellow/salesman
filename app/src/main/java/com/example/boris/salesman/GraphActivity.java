@@ -26,26 +26,15 @@ public class GraphActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.graph_page);
-
-        TextView text = (TextView) findViewById(R.id.textView);
 
         getCities();
         rout = FindingRout.getInstance().find(cities);
 
-        System.out.println("Boris testing\n-------------\nRouts: ");
-        for (int i =0; i < rout.size(); i ++){
-            System.out.println("---"+rout.get(i)[0] +"  "+ rout.get(i)[1]+ "---\n");
-        }
-
-
-        //text.setText("Some fucking text here");
         setContentView(new Draw(this, rout, cities));
     }
 
     private void getCities(){
         Intent intent = getIntent();
-        //System.out.println("Boris testing\n-------\n Size = " + intent.getStringExtra("cityCount"));
         cityCount = intent.getIntExtra("cityCount", 0);
         for(int i = 0; i < cityCount; i++){
             int x = intent.getIntExtra("X"+i, 0);
@@ -72,7 +61,6 @@ class Draw extends View{
         cityRadius = 30;
         rout = _rout;
         citiesOld = _cities;
-        cities = new ArrayList<int[]>();
 
     }
 
@@ -89,6 +77,7 @@ class Draw extends View{
         int margin = 30;
         int k = findKoef(width - margin, height - margin);
 
+        cities = new ArrayList<int[]>();
         for(int i = 0; i < citiesOld.size(); i++){
             cities.add(new int[]{citiesOld.get(i)[0] * k, citiesOld.get(i)[1] * k});
         }
@@ -99,9 +88,11 @@ class Draw extends View{
             canvas.drawLine(start[0] , start[1] , end[0], end[1] , p);
         }
 
+        String number;
         for(int i = 0; i < cities.size(); i++){
             canvas.drawCircle(cities.get(i)[0], cities.get(i)[1] , cityRadius, r);
-            String number = Integer.toString(i + 1);
+            number = Integer.toString(i + 1);
+            System.out.println("Boris testing\n----------\n number: "+number+"\n");
             canvas.drawText(number, cities.get(i)[0], cities.get(i)[1] ,p);
         }
 
