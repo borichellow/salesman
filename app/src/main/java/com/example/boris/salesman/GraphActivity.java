@@ -92,7 +92,6 @@ class Draw extends View{
         for(int i = 0; i < cities.size(); i++){
             canvas.drawCircle(cities.get(i)[0], cities.get(i)[1] , cityRadius, r);
             number = Integer.toString(i + 1);
-            System.out.println("Boris testing\n----------\n number: "+number+"\n");
             canvas.drawText(number, cities.get(i)[0], cities.get(i)[1] ,p);
         }
 
